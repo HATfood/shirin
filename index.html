@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirin Firouzbakht - Digital Business Card</title>
+    
+    <!-- Google Fonts: Poppins (Similar to Hero Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS STYLES --- */
+        
+        /* 1. Global & Root Variables */
+        :root {
+            --bg-color: #e8e4e0;
+            --text-color: #5d564f;
+            --card-glass-bg: rgba(255, 255, 255, 0.35);
+            --card-border: 1px solid rgba(255, 255, 255, 0.2);
+            --card-shadow: 0 8px 32px 0 rgba(93, 86, 79, 0.15);
+            --link-hover-bg: rgba(255, 255, 255, 0.5);
+            --accent-color-1: #bcaaa4; /* A soft, complementary color for graphics */
+            --accent-color-2: #a1887f; /* A slightly darker complementary color */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. Body & Background Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow: hidden; /* Prevents scrollbars from background shapes */
+            position: relative;
+        }
+        
+        /* Aesthetic background graphical elements */
+        .background-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.7;
+            z-index: 0;
+        }
+        .shape1 {
+            width: 400px;
+            height: 400px;
+            background-color: var(--accent-color-1);
+            top: -100px;
+            left: -100px;
+        }
+        .shape2 {
+            width: 350px;
+            height: 350px;
+            background-color: var(--accent-color-2);
+            bottom: -50px;
+            right: -100px;
+        }
+
+        /* 3. Main Business Card Styling */
+        .vcard {
+            width: 100%;
+            max-width: 380px;
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 25px;
+            position: relative;
+            z-index: 1;
+
+            /* Glassmorphism Effect */
+            background: var(--card-glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); /* For Safari */
+            border: var(--card-border);
+            box-shadow: var(--card-shadow);
+
+            /* For the 3D tilt effect */
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        /* 4. Card Header: Logo & Profile Picture */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            max-width: 100px;
+            opacity: 0.8;
+            transform: translateZ(20px); /* 3D effect */
+        }
+
+        .profile-pic-container {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.6), rgba(255,255,255,0.1));
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateZ(40px); /* 3D effect */
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        /* 5. Personal Information */
+        .name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            transform: translateZ(50px); /* 3D effect */
+        }
+
+        .title {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            transform: translateZ(30px); /* 3D effect */
+        }
+
+        /* 6. Contact Links & Buttons */
+        .contact-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-links li {
+            margin-bottom: 1rem;
+            transform: translateZ(20px); /* 3D effect */
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 18px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid transparent;
+        }
+        
+        .contact-links a:hover {
+            background: var(--link-hover-bg);
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .contact-links .icon {
+            font-size: 1.3rem;
+            width: 30px;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .contact-text {
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        /* -- EDIT 2: ADDED STYLE FOR LONG EMAIL ADDRESS -- */
+        .email-link .contact-text {
+            font-size: 0.9em; /* Makes font slightly smaller */
+            word-break: break-all; /* Ensures it wraps if still too long */
+        }
+
+        .contact-text small {
+            display: block;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: -2px;
+        }
+
+        /* 7. Social Media & Website Footer */
+        .socials {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(93, 86, 79, 0.1);
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            transform: translateZ(20px); /* 3D effect */
+        }
+
+        .socials a {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .socials a:hover {
+            opacity: 1;
+            transform: scale(1.2) translateY(-3px);
+            color: #2867B2; /* LinkedIn color */
+        }
+        
+        .socials a.website-link:hover {
+            color: #333; /* Generic dark color for website icon */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Aesthetic Background Shapes -->
+    <div class="background-shape shape1"></div>
+    <div class="background-shape shape2"></div>
+
+    <!-- The Main Card -->
+    <main class="vcard" data-tilt>
+        
+        <header class="card-header">
+            <!-- Replace logo.png with your company logo file -->
+            <img src="logo.png" alt="Company Logo" class="logo">
+            
+            <div class="profile-pic-container">
+                <!-- Replace pic.png with a photo of Shirin -->
+                <img src="pic.png" alt="Shirin Firouzbakht" class="profile-pic">
+            </div>
+        </header>
+
+        <section class="info">
+            <h1 class="name">Shirin Firouzbakht</h1>
+            <p class="title">International Trade Executive</p>
+        </section>
+
+        <ul class="contact-links">
+            <li>
+                <a href="https://wa.me/989122644556" target="_blank">
+                    <i class="icon fa-brands fa-whatsapp"></i>
+                    <div class="contact-text">+98 912 2644556 <small>Phone & WhatsApp</small></div>
+                </a>
+            </li>
+            <li>
+                <a href="tel:+981258179000">
+                    <!-- -- EDIT 1: ICON CHANGED FROM fa-phone-office TO fa-phone -- -->
+                    <i class="icon fa-solid fa-phone"></i>
+                    <div class="contact-text">+98 12 5817 9000 <small>Ext. 441</small></div>
+                </a>
+            </li>
+            <!-- -- EDIT 2: ADDED 'email-link' CLASS TO THE LIST ITEM FOR STYLING -- -->
+            <li class="email-link">
+                <a href="mailto:Firoozbakht.Shirin@hastitamin.com">
+                    <i class="icon fa-solid fa-envelope"></i>
+                    <div class="contact-text">Firoozbakht.Shirin@hastitamin.com</div>
+                </a>
+            </li>
+        </ul>
+
+        <footer class="socials">
+            <a href="https://www.linkedin.com/in/shirin-firoozbakht/" target="_blank" aria-label="LinkedIn Profile">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://hatintl.com" target="_blank" aria-label="Company Website" class="website-link">
+                <i class="fa-solid fa-globe"></i>
+            </a>
+        </footer>
+
+    </main>
+    
+    <!-- JavaScript for the 3D Tilt Effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelector(".vcard"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3,
+            scale: 1.05
+        });
+    </script>
+</body>
+</html>
