@@ -121,6 +121,15 @@
             background: var(--link-hover-bg); transform: scale(1.05);
             box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-color: rgba(255,255,255,0.5);
         }
+        /* -- NEW -- Style for the Save Contact button */
+        .save-contact-link {
+            background-color: var(--accent-color-2) !important;
+            color: white !important;
+            font-weight: 600 !important;
+        }
+        .save-contact-link:hover {
+            opacity: 0.9;
+        }
         .contact-links .icon { font-size: 1.3rem; width: 30px; margin-right: 15px; text-align: center; }
         .contact-text { text-align: left; flex-grow: 1; }
         .email-link .contact-text { font-size: 0.9em; word-break: break-all; }
@@ -212,6 +221,17 @@
                     <div class="contact-text">Firouzbakht.Shirin@hastitamin.com</div>
                 </a>
             </li>
+<!-- START: New Save Contact Button -->
+            <li>
+                <a class="save-contact-link" 
+                   href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Shirin%20Firouzbakht%0AN:Firouzbakht;Shirin;;;%0ATITLE:International%20Trade%20Executive%0AORG:Hasti%20Tamin%20International%0ATEL;TYPE=CELL,VOICE:%2B989122644556%0ATEL;TYPE=CELL,VOICE:%2B917603099912%0AEMAIL:Firouzbakht.Shirin@hastitamin.com%0AURL:https://hatintl.com%0AEND:VCARD"
+                   download="Shirin_Firouzbakht.vcf">
+                    <i class="icon fa-solid fa-address-card"></i>
+                    <div class="contact-text">Save to Contacts</div>
+                </a>
+            </li>
+            <!-- END: New Save Contact Button -->
+            
         </ul>
 
         <!-- -- NEW SECTION: QR Code & Catalogue Link -- -->
